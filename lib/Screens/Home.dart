@@ -8,7 +8,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 240, 199, 60),
+      backgroundColor: Colors.amber,
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.only(top: 10.0, left: 20, right: 20),

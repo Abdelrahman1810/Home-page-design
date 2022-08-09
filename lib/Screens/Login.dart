@@ -9,7 +9,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 240, 199, 60),
+      backgroundColor: Colors.amber,
       appBar: AppBar( 
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -43,7 +43,7 @@ class LoginScreen extends StatelessWidget {
         centerTitle: true,
         automaticallyImplyLeading: false,
         elevation: 0,
-        backgroundColor: const Color.fromARGB(255, 240, 199, 60),
+        backgroundColor: Colors.amber,
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.only(
@@ -167,11 +167,11 @@ class LoginScreen extends StatelessWidget {
                     children: [
                       MaterialButton(
                         elevation: 0,
-                        highlightColor: const Color.fromARGB(255, 240, 199, 60),
-                        hoverColor: const Color.fromARGB(255, 240, 199, 60),
+                        highlightColor: Colors.amber,
+                        hoverColor: Colors.amber,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30),),
-                        color: const Color.fromARGB(255, 240, 199, 60),
+                        color: Colors.amber,
                         onPressed: () {},
                         child: const Image(
                             image: AssetImage('assets/facebook.jpg'),
@@ -179,11 +179,11 @@ class LoginScreen extends StatelessWidget {
                       ),
                       MaterialButton(
                         elevation: 0,
-                        highlightColor: const Color.fromARGB(255, 240, 199, 60),
-                        hoverColor: const Color.fromARGB(255, 240, 199, 60),
+                        highlightColor: Colors.amber,
+                        hoverColor: Colors.amber,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30),),
-                        color: const Color.fromARGB(255, 240, 199, 60),
+                        color: Colors.amber,
                         onPressed: () {},
                         child: const Image(
                           image: AssetImage('assets/Instagram.png'),
@@ -192,12 +192,12 @@ class LoginScreen extends StatelessWidget {
                       ),
                       MaterialButton(
                         elevation: 0,
-                        highlightColor: const Color.fromARGB(255, 240, 199, 60),
-                        hoverColor: const Color.fromARGB(255, 240, 199, 60),
+                        highlightColor: Colors.amber,
+                        hoverColor: Colors.amber,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30),
                         ),
-                        color: const Color.fromARGB(255, 240, 199, 60),
+                        color: Colors.amber,
                         onPressed: () {},
                         child: const Image(
                           image: AssetImage('assets/Google.png'),
