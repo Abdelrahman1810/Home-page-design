@@ -182,7 +182,7 @@ class SignUpScreen extends StatelessWidget {
               ],
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 460.0),
+              padding: const EdgeInsets.only(top: 490.0),
               child: Column(
                 children: [
                   const Text('Or create an account using social media'),
