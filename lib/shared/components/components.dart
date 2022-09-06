@@ -65,23 +65,39 @@ Widget textField({
   keyboardType,
   final controller,
   required String hinttext,
+  required suffixIcon,
+  onChange,
+  bool isPassword = false,
+  bool isPasswordVisible = false,
 }) =>
     SizedBox(
       width: double.infinity,
       child: TextFormField(
         controller: controller,
         keyboardType: keyboardType,
+        onChanged: onChange,
+        validator: (value) {
+          if (isPassword & (value!.length < 8)) {
+            return 'must be at lest 8 character';
+          } else if (value.isEmpty) {
+            return 'Cannot be empty';
+          }
+          return null;
+        },
         decoration: InputDecoration(
           hintText: hinttext,
           hintStyle: const TextStyle(color: Colors.black),
-          suffixIcon: controller.text.isEmpty
-              ? Container(width: 0)
-              : IconButton(
-                  icon:
-                      const Icon(Icons.close, size: 20.0, color: Colors.black),
-                  onPressed: () => controller.clear(),
-                ),
+          suffixIcon: suffixIcon,
+          errorBorder: const OutlineInputBorder(
+            borderSide: BorderSide(width: 2, color: Colors.red),
+          ),
+          focusedErrorBorder: const OutlineInputBorder(
+            borderSide: BorderSide(width: 2, color: Colors.red),
+          ),
+          errorStyle:
+          const TextStyle(fontSize: 15.0, fontWeight: FontWeight.w400),
           enabledBorder: const OutlineInputBorder(
+            // borderRadius: BorderRadius.circular(20.0),
             borderSide: BorderSide(width: 3, color: Colors.black),
           ),
           focusedBorder: const OutlineInputBorder(
@@ -89,6 +105,7 @@ Widget textField({
           ),
         ),
         textInputAction: TextInputAction.done,
+        obscureText: isPasswordVisible,
       ),
     );
 

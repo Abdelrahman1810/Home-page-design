@@ -17,7 +17,7 @@ class HomeScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const Image(
-                image: AssetImage('assets/present.png'),
+                image: AssetImage('assets/images/present.png'),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -65,7 +65,8 @@ class HomeScreen extends StatelessWidget {
                 function: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => LoginScreen()),
+                    MaterialPageRoute(
+                        builder: (context) => const LoginScreen()),
                   );
                 },
                 color: Colors.amber,

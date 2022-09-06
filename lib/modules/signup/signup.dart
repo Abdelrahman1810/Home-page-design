@@ -1,9 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:home_page_design/shared/components/components.dart';
 
 class SignUpScreen extends StatefulWidget {
-  SignUpScreen({Key? key}) : super(key: key);
+  const SignUpScreen({Key? key}) : super(key: key);
 
   @override
   State<SignUpScreen> createState() => _SignUpScreenState();
@@ -17,9 +16,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final phone = TextEditingController();
 
   final pass = TextEditingController();
-
   String password = '';
   bool isPasswordVisible = true;
+
+  var formKey = GlobalKey<FormState>();
+  String errorText = 'Can\'ot be empty';
 
   @override
   void initState() {
@@ -76,109 +77,111 @@ class _SignUpScreenState extends State<SignUpScreen> {
           right: 20,
           left: 20,
         ),
-        child: Column(
-          children: [
-            const Text(
-              'Sign up',
-              style: TextStyle(
-                fontSize: 50.0,
-                fontWeight: FontWeight.w700,
+        child: Form(
+          key: formKey,
+          child: Column(
+            children: [
+              const Text(
+                'Sign up',
+                style: TextStyle(
+                  fontSize: 50.0,
+                  fontWeight: FontWeight.w700,
+                ),
               ),
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            /*name*/ textField(
-              controller: name,
-              hinttext: 'Name',
-              keyboardType: TextInputType.name,
-            ),
-            const SizedBox(height: 15),
-            /*email*/ textField(
-              controller: email,
-              hinttext: 'email address',
-              keyboardType: TextInputType.emailAddress,
-            ),
-            const SizedBox(height: 15),
-            /*phone*/ textField(
-              controller: phone,
-              hinttext: 'phone number',
-              keyboardType: TextInputType.phone,
-            ),
-            const SizedBox(height: 15),
-            /*password*/ buildPassword(),
-            const SizedBox(height: 25),
-            /*sign up*/ commonButton(
-              text: 'Create',
-              function: () {
-                print(name.text);
-                print(email.text);
-                print(phone.text);
-                print(pass.text);
-
-                name.clear();
-                email.clear();
-                phone.clear();
-                pass.clear();
-              },
-              fontsize: 25.0,
-            ),
-            const SizedBox(height: 20),
-            Column(
-              children: [
-                const Text('Or create an account using social media'),
-                const SizedBox(height: 10),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    iconSocialmedia(
-                      url: 'assets/Google.png',
-                    ),
-                    iconSocialmedia(
-                      url: 'assets/facebook.jpg',
-                    ),
-                    iconSocialmedia(
-                      url: 'assets/twitter-1464537-1239448.webp',
-                    ),
-                  ],
-                )
-              ],
-            ),
-          ],
+              const SizedBox(
+                height: 30,
+              ),
+              /*name*/ textField(
+                controller: name,
+                hinttext: 'Name',
+                keyboardType: TextInputType.name,
+                suffixIcon: name.text.isEmpty
+                    ? Container(width: 0)
+                    : IconButton(
+                  icon: const Icon(Icons.close,
+                      size: 20.0, color: Colors.black),
+                  onPressed: () => name.clear(),
+                ),
+              ),
+              const SizedBox(height: 15),
+              /*email*/ textField(
+                controller: email,
+                hinttext: 'Email',
+                keyboardType: TextInputType.emailAddress,
+                suffixIcon: email.text.isEmpty
+                    ? Container(width: 0)
+                    : IconButton(
+                  icon: const Icon(Icons.close,
+                      size: 20.0, color: Colors.black),
+                  onPressed: () => email.clear(),
+                ),
+              ),
+              const SizedBox(height: 15),
+              /*phone*/ textField(
+                controller: phone,
+                hinttext: 'phone number',
+                keyboardType: TextInputType.phone,
+                suffixIcon: phone.text.isEmpty
+                    ? Container(width: 0)
+                    : IconButton(
+                  icon: const Icon(Icons.close,
+                      size: 20.0, color: Colors.black),
+                  onPressed: () => phone.clear(),
+                ),
+              ),
+              const SizedBox(height: 15),
+              /*password*/ textField(
+                keyboardType: TextInputType.emailAddress,
+                controller: pass,
+                hinttext: 'Password',
+                isPassword: true,
+                suffixIcon: pass.text.isEmpty
+                    ? Container(width: 0)
+                    : IconButton(
+                  icon: isPasswordVisible
+                      ? const Icon(Icons.visibility_off,
+                      size: 20.0, color: Colors.black)
+                      : const Icon(Icons.visibility,
+                      size: 20.0, color: Colors.black),
+                  onPressed: () => setState(
+                        () => isPasswordVisible = !isPasswordVisible,
+                  ),
+                ),
+                onChange: (value) => setState(() => password = value),
+                isPasswordVisible: isPasswordVisible,
+              ),
+              const SizedBox(height: 25),
+              /*sign up*/ commonButton(
+                text: 'Create',
+                function: () => {if (formKey.currentState!.validate()) {}},
+                fontsize: 25.0,
+              ),
+              const SizedBox(height: 20),
+              Column(
+                children: [
+                  const Text('Or create an account using social media'),
+                  const SizedBox(height: 10),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      iconSocialmedia(
+                        url: 'assets/images/Google.png',
+                      ),
+                      iconSocialmedia(
+                        url: 'assets/images/facebook.jpg',
+                      ),
+                      iconSocialmedia(
+                        url: 'assets/images/twitter-1464537-1239448.webp',
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
   }
-
-  Widget buildPassword() => SizedBox(
-        width: double.infinity,
-        child: TextFormField(
-          keyboardType: TextInputType.visiblePassword,
-          controller: pass,
-          onChanged: (value) => setState(() => password = value),
-          decoration: InputDecoration(
-            hintText: 'Password',
-            hintStyle: const TextStyle(color: Colors.black),
-            // errorText: password.length < 6 ? 'Password too short.' : null,
-            suffixIcon: IconButton(
-              icon: isPasswordVisible
-                  ? const Icon(Icons.visibility_off,
-                      size: 20.0, color: Colors.black)
-                  : const Icon(Icons.visibility,
-                      size: 20.0, color: Colors.black),
-              onPressed: () => setState(
-                () => isPasswordVisible = !isPasswordVisible,
-              ),
-            ),
-            enabledBorder: const OutlineInputBorder(
-              borderSide: BorderSide(width: 3, color: Colors.black),
-            ),
-            focusedBorder: const OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.white, width: 3.0),
-            ),
-          ),
-          textInputAction: TextInputAction.done,
-          obscureText: isPasswordVisible,
-        ),
-      );
 }
+
