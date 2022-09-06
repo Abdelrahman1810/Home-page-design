@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-
-/// to see Home page
-import 'Screens/Home.dart';
+import 'package:home_page_design/modules/home/home.dart';
 
 void main() {
   runApp(const MyApp());

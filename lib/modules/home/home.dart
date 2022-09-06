@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'Login.dart';
-import 'Signup.dart';
+import 'package:home_page_design/modules/login/login.dart';
+import 'package:home_page_design/modules/signup/Signup.dart';
+import 'package:home_page_design/shared/components/components.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -59,62 +60,33 @@ class HomeScreen extends StatelessWidget {
               const SizedBox(
                 height: 30,
               ),
-              MaterialButton(
-                onPressed: () {
+              commonButton(
+                text: 'Log In',
+                function: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => LoginScreen()),
                   );
                 },
-                child: Container(
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5),
-                    border: Border.all(
-                      width: 3,
-                      color: Colors.black,
-                    ),
-                  ),
-                  child: const Text(
-                    'Log in',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      fontSize: 40,
-                    ),
-                  ),
-                ),
+                color: Colors.amber,
+                textcolor: Colors.black,
+                fontsize: 40.0,
+                border: 3.0,
+                fontWeight: FontWeight.bold,
               ),
               const SizedBox(
                 height: 20,
               ),
-              MaterialButton(
-                onPressed: () {
+              commonButton(
+                text: 'Sign Up',
+                function: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => SignUpScreen()),
                   );
                 },
-                child: Container(
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    color: Colors.black,
-                    borderRadius: BorderRadius.circular(5),
-                    border: Border.all(
-                      width: 3,
-                      color: Colors.black,
-                    ),
-                  ),
-                  child: const Text(
-                    'Sign up',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Color.fromARGB(255, 240, 199, 60),
-                      fontWeight: FontWeight.w500,
-                      fontSize: 40,
-                    ),
-                  ),
-                ),
+                fontsize: 40.0,
+                fontWeight: FontWeight.bold,
               ),
             ],
           ),
