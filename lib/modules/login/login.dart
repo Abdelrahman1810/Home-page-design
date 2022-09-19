@@ -104,10 +104,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 suffixIcon: email.text.isEmpty
                     ? Container(width: 0)
                     : IconButton(
-                  icon: const Icon(Icons.close,
-                      size: 20.0, color: Colors.black),
-                  onPressed: () => email.clear(),
-                ),
+                        icon: const Icon(Icons.close, size: 20.0, color: Colors.black),
+                        onPressed: () => email.clear(),
+                      ),
               ),
               const SizedBox(height: 10),
               /*password*/ textField(
@@ -118,15 +117,13 @@ class _LoginScreenState extends State<LoginScreen> {
                 suffixIcon: pass.text.isEmpty
                     ? Container(width: 0)
                     : IconButton(
-                  icon: isPasswordVisible
-                      ? const Icon(Icons.visibility_off,
-                      size: 20.0, color: Colors.black)
-                      : const Icon(Icons.visibility,
-                      size: 20.0, color: Colors.black),
-                  onPressed: () => setState(
-                        () => isPasswordVisible = !isPasswordVisible,
-                  ),
-                ),
+                        icon: isPasswordVisible
+                            ? const Icon(Icons.visibility_off, size: 20.0, color: Colors.black)
+                            : const Icon(Icons.visibility, size: 20.0, color: Colors.black),
+                        onPressed: () => setState(
+                          () => isPasswordVisible = !isPasswordVisible,
+                        ),
+                      ),
                 onChange: (value) => setState(() => password = value),
                 isPasswordVisible: isPasswordVisible,
               ),
@@ -157,13 +154,15 @@ class _LoginScreenState extends State<LoginScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       iconSocialmedia(
-                        url: 'assets/images/Google.png',
+                        url:
+                            'https://www.freepnglogos.com/uploads/google-plus-png-logo/plus-original-google-solid-google-world-brand-png-logo-21.png',
                       ),
                       iconSocialmedia(
-                        url: 'assets/images/facebook.jpg',
+                        url:
+                            'https://icon-library.com/images/facebook-icon-black/facebook-icon-black-12.jpg',
                       ),
                       iconSocialmedia(
-                        url: 'assets/images/twitter-1464537-1239448.webp',
+                        url: 'https://cdn-icons-png.flaticon.com/512/6422/6422210.png',
                       ),
                     ],
                   )

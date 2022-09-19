@@ -42,33 +42,31 @@ Widget commonButton({
     );
 
 Widget iconSocialmedia({
-  Color color = Colors.amber,
-  String url = 'assets/Error-512.webp',
-  double height = 40,
-  double width = 40,
+  String url = 'https://cdn0.iconfinder.com/data/icons/shift-free/32/Error-512.png',
+  double size = 40,
 }) =>
     MaterialButton(
       elevation: 0,
-      highlightColor: color,
-      hoverColor: color,
+      highlightColor: Colors.amber,
+      hoverColor: Colors.amber,
       shape: const CircleBorder(),
       color: Colors.amber,
       onPressed: () {},
       child: Image(
-        image: AssetImage(url),
-        height: height,
-        width: width,
+        image: NetworkImage(url),
+        height: size,
+        width: size,
       ),
     );
 
 Widget textField({
-  keyboardType,
-  final controller,
   required String hinttext,
   required suffixIcon,
-  onChange,
+  final controller,
   bool isPassword = false,
   bool isPasswordVisible = false,
+  keyboardType,
+  onChange,
 }) =>
     SizedBox(
       width: double.infinity,
@@ -94,8 +92,7 @@ Widget textField({
           focusedErrorBorder: const OutlineInputBorder(
             borderSide: BorderSide(width: 2, color: Colors.red),
           ),
-          errorStyle:
-          const TextStyle(fontSize: 15.0, fontWeight: FontWeight.w400),
+          errorStyle: const TextStyle(fontSize: 15.0, fontWeight: FontWeight.w400),
           enabledBorder: const OutlineInputBorder(
             // borderRadius: BorderRadius.circular(20.0),
             borderSide: BorderSide(width: 3, color: Colors.black),

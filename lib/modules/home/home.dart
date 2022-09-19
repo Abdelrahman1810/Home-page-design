@@ -17,7 +17,15 @@ class HomeScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const Image(
-                image: AssetImage('assets/images/present.png'),
+                // image: NetworkImage('https://cdn-icons-png.flaticon.com/512/6422/6422210.png'),
+                //   image: NetworkImage(
+                //       'https://icon-library.com/images/facebook-icon-black/facebook-icon-black-12.jpg'),
+                image: NetworkImage(
+                  'https://iconape.com/wp-content/png_logo_vector/present.png',
+                ),
+                // ,Image(
+                //   'https://www.freepnglogos.com/uploads/google-plus-png-logo/plus-original-google-solid-google-world-brand-png-logo-21.png',
+                // ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -65,8 +73,7 @@ class HomeScreen extends StatelessWidget {
                 function: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                        builder: (context) => const LoginScreen()),
+                    MaterialPageRoute(builder: (context) => const LoginScreen()),
                   );
                 },
                 color: Colors.amber,
